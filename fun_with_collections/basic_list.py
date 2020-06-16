@@ -9,26 +9,41 @@ Purpose: Demonstrates the use of a basic list
 
 def get_input():
     """
-    Description:
+    Description: Gets user input
 
-    :param parameter_1: this is what the first parameter represents
-    :param parameter_2: this is what the second parameter represents
-    :returns: this is what is returned
+    :returns: returns a string of user input
     :raises keyError: raises an exception
     """
+
+    # prompt user for input
+    # test it manually in your basic_list.py main.
+
     pass
 
 
 def make_list():
     """
-    Description:
+    Description: gets 3 user inputs and combines them into a list
 
-    :param parameter_1: this is what the first parameter represents
-    :param parameter_2: this is what the second parameter represents
-    :returns: this is what is returned
-    :raises keyError: raises an exception
+    :returns: returns a list of 3 values
+    :raises ValueError: raises an exception if input is not numeric
     """
-    pass
+
+    new_list = []
+    # asks for 3 user input in a loop by
+    for index in range(3):
+        user_input = get_input()
+        try:
+            # attempt to cast string to an integer
+            user_input = int(user_input)
+        except ValueError:
+            print('Input is in bad format!')
+            raise ValueError
+        else:
+            # if successful, insert into list
+            new_list.insert(index, user_input)
+
+    return new_list
 
 
 if __name__ == '__main__':
