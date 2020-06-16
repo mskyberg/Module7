@@ -24,7 +24,8 @@ class TestList(unittest.TestCase):
 
     def test_bad_input(self):
         with mock.patch('builtins.input', side_effect=[90, 'dog', 85]):
-            self.assertRaises(ValueError)
+            with self.assertRaises(ValueError):
+                basic_list.make_list()
 
 
 if __name__ == '__main__':
