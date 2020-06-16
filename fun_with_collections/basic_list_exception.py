@@ -32,7 +32,8 @@ def make_list():
     new_list = []
     # asks for 3 user input in a loop by
     for index in range(LIST_MAX):
-        user_input = get_input()
+        #user_input = get_input()
+        user_input = '51'
         try:
             # attempt to cast string to an integer
             user_input = int(user_input)
@@ -40,8 +41,15 @@ def make_list():
             print(f'Input is in bad format! {e}')
             raise ValueError
         else:
-            # if successful, insert into list
-            new_list.insert(index, user_input)
+            try:
+                if not 1 <= user_input <= 50:
+                    raise ValueError
+            except ValueError:
+                print(f'Input is out of range! {user_input}')
+                raise ValueError
+            else:
+                # if successful, insert into list
+                new_list.insert(index, user_input)
 
     return new_list
 
