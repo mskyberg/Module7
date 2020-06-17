@@ -21,6 +21,16 @@ class TestList(unittest.TestCase):
     def test_search_list_item_found(self, input):
         self.assertEqual(ss.search_array(ss.make_array(), 25), 0)
 
+    def test_sort_array(self):
+        # mock input from a user
+        with mock.patch('builtins.input', side_effect=[13, 1, 41]):
+            assert ss.make_array(sort=True) == [1, 13, 41]
+
+    def test_sort_array_reverse(self):
+        # mock input from a user
+        with mock.patch('builtins.input', side_effect=[13, 1, 41]):
+            assert ss.make_array(sort=True, reverse=True) == [41, 13, 1]
+
 
 if __name__ == '__main__':
     unittest.TestCase()
