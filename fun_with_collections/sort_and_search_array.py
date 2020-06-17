@@ -73,7 +73,12 @@ def search_array(a_arr, element):
     :returns: index of element
     :raises ValueError: raises an exception if element does not exist
     """
-    pass
+    try:
+        index = a_arr.index(element)
+    except ValueError:
+        return -1
+    else:
+        return index
 
 
 if __name__ == '__main__':
