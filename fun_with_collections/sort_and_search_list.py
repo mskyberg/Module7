@@ -21,10 +21,12 @@ def get_input():
     return input('Enter an integer value: ')
 
 
-def make_list():
+def make_list(sort=False, reverse=False):
     """
     Description: gets 3 user inputs and combines them into a list
 
+    :param sort: optional bool whether or not to sort the list
+    :param reverse: optional bool sort in reverse order or not
     :returns: returns a list of 3 values
     :raises ValueError: raises an exception if input is not numeric
     """
@@ -44,19 +46,25 @@ def make_list():
             # if successful, insert into list
             new_list.insert(index, user_input)
 
-    return new_list
+    if sort:
+        return sort_list(new_list, reverse)
+    else:
+        return new_list
 
 
-def sort_list():
+def sort_list(a_list, rev=False):
     """
     Description: Sort a list in order with optional reverse
 
-    :param parameter_1:
-    :param parameter_2:
-    :returns: will be no return because this function modifies a muteable
-    :raises keyError: raises an exception
+    :param a_list: a list to sort
+    :param rev: sort order, true if reverse sort
+    :returns: a sorted list
     """
-    pass
+
+    a_list.sort(reverse=rev)
+    # I am passing in a list, I am returning a sorted list within the
+    # make_list function
+    return a_list
 
 
 def search_list(a_list, element):
@@ -65,8 +73,8 @@ def search_list(a_list, element):
 
     :param a_list: list to search
     :param element: element to find
-    :returns: this is what is returned
-    :raises keyError: raises an exception
+    :returns: index of element
+    :raises ValueError: raises an exception if element does not exist
     """
     try:
         index = a_list.index(element)
@@ -78,6 +86,9 @@ def search_list(a_list, element):
 
 if __name__ == '__main__':
     try:
-        print(make_list())
+        test_list = make_list(sort=True, reverse=False)
+        print(test_list)
+        element_index = int(input('Enter element to search:'))
+        print(f'Index: {search_list(test_list, element_index)}')
     except ValueError as main_error:
         print(f'failure in main: {main_error}')
