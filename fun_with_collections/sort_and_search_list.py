@@ -59,16 +59,21 @@ def sort_list():
     pass
 
 
-def search_list():
+def search_list(a_list, element):
     """
     Description: Search for an element at provided index
 
-    :param parameter_1:
-    :param parameter_2:
+    :param a_list: list to search
+    :param element: element to find
     :returns: this is what is returned
     :raises keyError: raises an exception
     """
-    pass
+    try:
+        index = a_list.index(element)
+    except ValueError:
+        return -1
+    else:
+        return index
 
 
 if __name__ == '__main__':
