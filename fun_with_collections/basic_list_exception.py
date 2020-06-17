@@ -33,7 +33,6 @@ def make_list():
     # asks for 3 user input in a loop by
     for index in range(LIST_MAX):
         user_input = get_input()
-        print(f'user_input: {user_input}')
         try:
             # attempt to cast string to an integer
             user_input = int(user_input)
