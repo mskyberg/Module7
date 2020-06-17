@@ -61,7 +61,13 @@ def sort_array(a_arr, rev=False):
     :param rev: sort order, true if reverse sort
     :returns: a sorted array
     """
-    pass
+    # convert the array to a list since it is for sure same type
+    arr_as_list = a_arr.tolist()
+    # sort the list accordingly
+    arr_as_list.sort(reverse=rev)
+    # create new array with the integer list sorted
+    # I am creating a new array so going to return the new array
+    return arr.array('i', arr_as_list)
 
 
 def search_array(a_arr, element):
@@ -83,7 +89,7 @@ def search_array(a_arr, element):
 
 if __name__ == '__main__':
     try:
-        test_array = make_array(sort=True, reverse=False)
+        test_array = make_array(sort=False, reverse=False)
         print(test_array)
         element_index = int(input('Enter element to search:'))
         print(f'Index: {search_array(test_array, element_index)}')
